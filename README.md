@@ -128,30 +128,6 @@ http://localhost:8080
 | `POST` | `/v1/accounts/{accountId}/stocks` | Associa uma ação e sua quantidade à conta |
 | `GET`  | `/v1/accounts/{accountId}/stocks` | Lista as ações e consulta seus valores    |
 
-## Integração com a BRAPI
-
-Para consultar as cotações das ações, a aplicação utiliza o **OpenFeign** para realizar chamadas à BRAPI.
-
-O fluxo da consulta de uma conta é:
-
-```text
-GET /v1/accounts/{accountId}/stocks
-                ↓
-            Controller
-                ↓
-             Service
-                ↓
-       Consulta a BRAPI
-                ↓
-       Cotação da ação
-                ↓
-    Cálculo do valor da posição
-                ↓
-            Resposta
-```
-
-O valor da posição é calculado considerando a quantidade de ações cadastrada e a cotação retornada pela BRAPI.
-
 ## Testes
 
 Os testes automatizados podem ser executados através do Maven Wrapper.
